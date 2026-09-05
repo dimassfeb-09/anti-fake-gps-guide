@@ -2,8 +2,8 @@
 
 A hardened driver app ships a fraud-detection module that re-checks location
 honesty **independently of the app layer**. Sensitive probe strings are
-XOR-encoded (`hex → XOR with short key → UTF-8`); the table below lists the
-decoded set, grouped by probe area.
+XOR-obscured probe strings; the table below lists the
+full set, grouped by probe area.
 
 ## 10.1 Independent mock listener
 
@@ -14,7 +14,7 @@ Besides the app-layer `isFromMockProvider()` flag, the fraud module registers it
 `getLastKnownLocation()` across **all providers**, so a mock that was enabled
 and then switched off still leaves a stale trace in another provider.
 
-Relevant decoded anchors in the mock-check method:
+Relevant probe strings in the mock-check method:
 
 - `"mock_location"`
 - `"android.permission.ACCESS_FINE_LOCATION"`
@@ -25,9 +25,9 @@ Lesson: the second check must live in a **separate module** and read
 **separate sources** (its own listener + all providers' last-known), or one
 patch kills both layers.
 
-## 10.2 Full decoded probe table (30 methods)
+## 10.2 Full probe checklist (30 areas)
 
-| Area | Decoded strings (what is probed) |
+| Area | Probe strings (what is checked) |
 |---|---|
 | Device identity | `advertising_id`, `ro.serialno` (via `android.os.SystemProperties` + `get`), `ro.build.fingerprint`, `ro.debuggable` |
 | OS / radio state | `airplane_mode_on`, `location` service state, `input_method` |
