@@ -23,7 +23,7 @@ implement the same in your own app.
 |---|-----|----------------|
 | 8 | [Reference pipeline](docs/08-reference-pipeline.md) | End-to-end data flow: RN bridge → monitor service → provider racing → model → router → IPC → server, with tuned constants (20 s intervene, dual strategy) |
 | 9 | [Payload schemas](docs/09-payload-schemas.md) | Exact JSON schemas: per-fix item, batch request, history request, order correlation, response envelope |
-| 10 | [Fraud-detection module](docs/10-fraud-sdk-internals.md) | 30-probe checklist, independent mock listener, emulator/root/farm detection |
+| 10 | [Fraud-detection module](docs/10-fraud-detection-module.md) | 30-probe checklist, independent mock listener, emulator/root/farm detection |
 | 11 | [Transport & resilience](docs/11-transport-and-resilience.md) | REST endpoints, IPC to the push process, WSS heartbeat/reconnect tuning, offline buffering |
 
 ### Build it yourself
