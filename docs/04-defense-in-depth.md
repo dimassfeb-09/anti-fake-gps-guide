@@ -25,7 +25,7 @@ fun anyProviderMocked(mgr: LocationManager): Boolean =
 ```
 
 If the app-layer check is patched, the SDK-layer check still reports mock.
-Putting the second check in a different package/dex makes one-patch bypasses
+Putting the second check in a different module makes one-patch bypasses
 insufficient.
 
 ## Layer 3 — Sensor consistency (client → server)

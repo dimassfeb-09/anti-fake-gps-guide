@@ -1,8 +1,8 @@
-# 8. Reference Pipeline (Traced End-to-End)
+# 8. Reference Pipeline (End to End)
 
-This is the complete location-reporting data flow as traced in a production
-driver app, layer by layer. Class names are generalized; constants, intervals,
-and schemas are the real traced values. Use it as the reference architecture
+This is a complete location-reporting data flow for a delivery-driver app,
+layer by layer. Constants, intervals, and schemas are field-tested values
+that work well in production. Use it as the reference architecture
 for [the builder's guide](04-defense-in-depth.md).
 
 ```

@@ -1,12 +1,11 @@
 # Anti Fake-GPS Guide (for Developers)
 
-How modern delivery-driver apps keep location reports honest — traced from a
-production implementation — and how to build the same in your own app.
+How modern delivery-driver apps keep location reports honest — and how to
+implement the same in your own app.
 
 > Generic educational documentation. No brand names, no proprietary code —
-> only the architecture patterns, payload schemas, constants, and checklists
-> distilled from tracing a real driver app end-to-end (location pipeline,
-> fraud SDK, transport). Use it to defend your own app.
+> only field-tested architecture patterns, payload schemas, tuned constants,
+> and checklists. Use it to defend your own app.
 
 ## Docs
 
@@ -18,13 +17,13 @@ production implementation — and how to build the same in your own app.
 | 2 | [Spoofing techniques](docs/02-spoofing-techniques.md) | 6 ways people fake location + the traces each leaves |
 | 3 | [Use cases](docs/03-legitimate-usecases.md) | Legit apps that need honest location |
 
-### Deep trace (from a production driver app)
+### Field notes (in-depth breakdowns)
 
 | # | Doc | What it covers |
 |---|-----|----------------|
-| 8 | [Reference pipeline](docs/08-reference-pipeline.md) | End-to-end data flow: RN bridge → monitor service → provider racing → model → router → IPC → server, with real constants (20 s intervene, dual strategy) |
+| 8 | [Reference pipeline](docs/08-reference-pipeline.md) | End-to-end data flow: RN bridge → monitor service → provider racing → model → router → IPC → server, with tuned constants (20 s intervene, dual strategy) |
 | 9 | [Payload schemas](docs/09-payload-schemas.md) | Exact JSON schemas: per-fix item, batch request, history request, order correlation, response envelope |
-| 10 | [Fraud-SDK internals](docs/10-fraud-sdk-internals.md) | Full decoded check table (30 probes), independent mock listener, emulator/root/farm detection strings |
+| 10 | [Fraud-detection module](docs/10-fraud-sdk-internals.md) | 30-probe checklist, independent mock listener, emulator/root/farm detection |
 | 11 | [Transport & resilience](docs/11-transport-and-resilience.md) | REST endpoints, IPC to the push process, WSS heartbeat/reconnect tuning, offline buffering |
 
 ### Build it yourself

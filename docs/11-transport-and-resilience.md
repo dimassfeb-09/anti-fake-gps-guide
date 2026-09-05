@@ -1,6 +1,7 @@
 # 11. Transport & Resilience (Endpoints, IPC, Heartbeats)
 
-How reports get to the server without loss, traced values included.
+How reports get to the server without loss — endpoints, fallback paths,
+and channel tuning that works in production.
 
 ## 11.1 REST endpoints
 
@@ -37,11 +38,11 @@ Log anchors: `[processSendLocationCommand]`, `[processSendHistoryLocationCommand
 Why two paths: the UI process can be killed while the push daemon survives.
 Location generated just before a kill is forwarded over IPC instead of lost.
 
-## 11.3 Push channel tuning (traced constants)
+## 11.3 Push channel tuning (field-tested values)
 
 The daemon holds its own WebSocket (OkHttp) with server-driven tuning:
 
-| Setting | Traced value |
+| Setting | Value |
 |---|---|
 | Heartbeat interval | `0x4e20` = **20 000 ms = 20 s** |
 | Connect timeout | `0x5` = **5 s** |

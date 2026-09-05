@@ -1,8 +1,7 @@
 # 9. Payload Schemas (Exact Field Names)
 
-Schemas below use the exact JSON keys traced in the reference implementation.
-Types are JSON types. `Double`/`Float`/`Integer`/`Boolean` follow the
-Gson annotations on the wire classes.
+Schemas below use field-tested JSON keys for a driver-app reporting API.
+Types are JSON types (`Double`/`Float`/`Integer`/`Boolean` per field).
 
 ## 9.1 Per-fix item (V2 wire format — what the server receives)
 

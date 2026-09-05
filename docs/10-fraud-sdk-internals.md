@@ -1,9 +1,9 @@
-# 10. Fraud-SDK Internals (Second-Layer Checks, Fully Decoded)
+# 10. Fraud-Detection Module Internals (Second-Layer Checks)
 
-The reference app ships a fraud SDK that re-checks location honesty
-**independently of the app layer**. All its sensitive strings are XOR-encoded
-(`hex → XOR with short key → UTF-8`); the table below is the fully decoded
-result, grouped by the method that uses each string.
+A hardened driver app ships a fraud-detection module that re-checks location
+honesty **independently of the app layer**. Sensitive probe strings are
+XOR-encoded (`hex → XOR with short key → UTF-8`); the table below lists the
+decoded set, grouped by probe area.
 
 ## 10.1 Independent mock listener
 
@@ -59,7 +59,7 @@ trivially renamed. Prefer the same: check **properties**, not package names.
    don't.
 4. **Keep the string table encoded.** Even a one-byte XOR defeats casual
    `strings` triage and forces an attacker to trace code, not grep. Serious
-   keys belong in native code, not in dex at all.
+   keys belong in native code, not in app bytecode at all.
 5. **Report, don't enforce, on-device.** The SDK's job ends at producing a
    second verdict bit plus the environment snapshot — the score lives on the
    server ([scoring](06-server-side-scoring.md)).
