@@ -7,7 +7,7 @@ decoded set, grouped by probe area.
 
 ## 10.1 Independent mock listener
 
-Besides the app-layer `isFromMockProvider()` flag, the SDK registers its own
+Besides the app-layer `isFromMockProvider()` flag, the fraud module registers its own
 `LocationListener` and, on every fix, rounds `lat/lon` through `BigDecimal`
 (scale normalization — defeats naive float-compare bypasses) before calling
 `isFromMockProvider()` again on its own copy. It also walks
@@ -44,7 +44,7 @@ patch kills both layers.
 | Encoding / errors | `GBK`, `UTF-8`, `Permission denied`, `%.1f`, `S44,`, `SPSPDT_APPID` (vendor app-id tag) |
 
 Notably **absent**: no `frida` / `xposed` / `magisk` / `su` string literals in
-this SDK — root/tool detection here is behavioral (init services, sockets,
+this module — root/tool detection here is behavioral (init services, sockets,
 inodes, debuggable flag) rather than package-name blocklists, which are
 trivially renamed. Prefer the same: check **properties**, not package names.
 
@@ -60,6 +60,6 @@ trivially renamed. Prefer the same: check **properties**, not package names.
 4. **Keep the string table encoded.** Even a one-byte XOR defeats casual
    `strings` triage and forces an attacker to trace code, not grep. Serious
    keys belong in native code, not in app bytecode at all.
-5. **Report, don't enforce, on-device.** The SDK's job ends at producing a
+5. **Report, don't enforce, on-device.** The module's job ends at producing a
    second verdict bit plus the environment snapshot — the score lives on the
    server ([scoring](06-server-side-scoring.md)).

@@ -14,7 +14,7 @@ never the sole decision.
 
 ## Layer 2 — Independent re-check (separate module)
 
-Don't trust one code path. In a separate module/SDK:
+Don't trust one code path. In a separate module:
 
 ```kotlin
 // stale mock survives in last-known locations even after mock is off
@@ -24,7 +24,7 @@ fun anyProviderMocked(mgr: LocationManager): Boolean =
     }
 ```
 
-If the app-layer check is patched, the SDK-layer check still reports mock.
+If the app-layer check is patched, the module-layer check still reports mock.
 Putting the second check in a different module makes one-patch bypasses
 insufficient.
 
